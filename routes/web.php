@@ -14,3 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/user', 'UserController@index');
+    //Route::post('/users', 'UserController@store');
+    //Route::get('/users/create', 'UserController@create');
+    //Route::get('/users/{post}', 'UserController@show');
+    //Route::post('/posts/{post}', 'UserController@update');
+    //Route::delete('/posts/{post}', 'UserController@delete');
+    //Route::get('/posts/{post}/edit', 'UserController@edit');
+    Route::get('/', 'UserController@index');
+});

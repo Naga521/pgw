@@ -10,7 +10,12 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        // $this->call(UsersTableSeeder::class);
-    }
+{
+    $this->call(ApexTableSeeder::class);
+    $this->call(ChatmessageTableSeeder::class);
+    $this->call(ChatTableSeeder::class);
+    $this->call(CodTableSeeder::class);
+    $this->call(DmTableSeeder::class);
+    $this->call(ValorantTableSeeder::class);
+}
 }
