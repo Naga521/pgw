@@ -9,18 +9,18 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>Teruya</h1>
+        <a href="/my_page2"><h1>Teruya</h1></a>
         <div class='User'>
             <div class='User'>
                 {{-- \Illuminate\Support\Facades\Auth::id() --}}
-                <a><h2>アカウント検索</h2></a>
-                 <a><h3>フレンドユーザー一覧</h3></a>
-                   <a><h3>ユーザー一覧</h3></a>
+                <a href="/"><h2>アカウント検索</h2></a>
+                 <a href="/"><h3>フレンドユーザー一覧</h3></a>
+                   <a href="/"><h3>ユーザー一覧</h3></a>
                    @foreach ($users as $user)
-                     <h4 class='home'>{{ $user->name }}</h4>
+                     <a href="/"><h4 class='home'>{{ $user->name }}</h4></a>
                     </div>
                    @endforeach
-                   <a><h3>グループチャット一覧</h3></a>
+                   <a href="/"><h3>グループチャット一覧</h3></a>
             </div>
             <div class='paginate'>
             {{ $users->links() }}
