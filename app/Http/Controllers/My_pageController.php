@@ -30,6 +30,11 @@ class My_pageController extends Controller
                 "message" => "マイページ画像を変更しました。",
                 "top_image_pass" => $top_image_pass2 
             ]);
+            {
+      $users = User::all();
+
+      return view('users.index', ['users' => $users]);
+    }
         }
     }
 }

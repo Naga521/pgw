@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 @if (Session::has('message'))
     <p>{{ session('message') }}</p>
 @endif
@@ -15,20 +19,19 @@
     <img src="{{ asset('/storage/top_file') }}/{{ session('top_image_pass') }}" alt=""> 
 
 @endif
-
-<!DOCTYPE html>
-<html lang="ja">
-<body>
+    
+  </form>
+  
 <!-- マイページ変更画面 -->
-<form action="/my_page2" method="post" enctype='multipart/form-data'> 
+<form action="/user/create" method="post" enctype='multipart/form-data'> 
     {{ csrf_field() }}
+    @method('PUT')
     <!-- 画像内容 -->
     <div>
         <input type="file" name="top_image">
     </div>
-    <input type="submit" value="編集">
+    <input type="submit" value="保存">
     <div class='戻る'>[<a href='/'>戻る</a>]</div>
 </form>
 
-</body>
-</html>
+@endsection

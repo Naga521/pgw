@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
@@ -26,7 +24,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/my_page2', 'My_pageController@index');
 Route::post('/my_page2', 'My_pageController@my_page_update');
     //Route::post('/users', 'UserController@store');
-    //Route::get('/users/create', 'UserController@create');
+    Route::put('/user/create', 'UserController@create');
     //Route::get('/users/{post}', 'UserController@show');
     //Route::post('/posts/{post}', 'UserController@update');
     //Route::delete('/posts/{post}', 'UserController@delete');

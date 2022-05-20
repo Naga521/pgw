@@ -18,6 +18,10 @@
                    <a href="/"><h3>ユーザー一覧</h3></a>
                    @foreach ($users as $user)
                      <a href="/"><h4 class='home'>{{ $user->name }}</h4></a>
+                     @if ($user->image_path)
+      　　　　　　　　　　　　　<!-- 画像を表示 -->
+      　　　　　　　　　　　　　　<img src="{{ $user->image_path }}">
+    　　　　　　　　　　　　　　@endif
                     </div>
                    @endforeach
                    <a href="/"><h3>グループチャット一覧</h3></a>
