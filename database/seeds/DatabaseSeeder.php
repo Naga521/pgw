@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
 {
     $this->call(ApexTableSeeder::class);
     $this->call(ChatmessageTableSeeder::class);
-    $this->call(ChatTableSeeder::class);
+    $this->call(ChatsSeeder::class);
     $this->call(CodTableSeeder::class);
     $this->call(DmTableSeeder::class);
     $this->call(ValorantTableSeeder::class);

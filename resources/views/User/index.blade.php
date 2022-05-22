@@ -20,11 +20,18 @@
                      <a href="/"><h4 class='home'>{{ $user->name }}</h4></a>
                      @if ($user->image_path)
       　　　　　　　　　　　　　<!-- 画像を表示 -->
-      　　　　　　　　　　　　　　<img src="{{ $user->image_path }}">
+      　　　　　　　　　　　　　　<img src="{{ $user->image_path }}" width=100>
     　　　　　　　　　　　　　　@endif
                     </div>
                    @endforeach
-                   <a href="/"><h3>グループチャット一覧</h3></a>
+                   <h3>グループチャット一覧</h3>
+                   @foreach ($chats as $chat)
+                   <a href="/chats/{{$chat->id}}"><h4 class='home'>{{ $chat->room_name}}</h4></a>
+                   
+                   <h3 class='部屋１'>
+                   <a href="/chats/{{ $chat->id }}">{{ $chat->title }}</a>
+                   </h3>
+                   @endforeach
             </div>
             <div class='paginate'>
             {{ $users->links() }}

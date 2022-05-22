@@ -32,6 +32,6 @@
     </div>
     <input type="submit" value="保存">
     <div class='戻る'>[<a href='/'>戻る</a>]</div>
-</form>
+    
 
 @endsection

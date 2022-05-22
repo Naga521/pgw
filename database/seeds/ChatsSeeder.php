@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ChatTableSeeder extends Seeder
+class ChatsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,12 +11,12 @@ class ChatTableSeeder extends Seeder
      */
     public function run()
     {
-          DB::table('chat')->insert([
+          DB::table('chats')->insert([
         'id' => '1',
         'chat_id' => '2',
         'room_name'=> '部屋1',
         ]);
-           DB::table('chat')->insert([
+           DB::table('chats')->insert([
         'id' => '2',
         'chat_id' => '3',
         'room_name'=> '部屋2',

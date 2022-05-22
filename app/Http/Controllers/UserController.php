@@ -7,13 +7,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Chats;
 use Storage;
 
 class UserController extends Controller
 {
-public function index(User $user)
+public function index(User $user, Chats $chats)
 {
-    return view('User/index')->with(['users' => $user->getPaginateByLimit()]);
+    return view('User/index')->with(['users' => $user->getPaginateByLimit(),"chats"=>$chats->get()]);
 }
  public function create(Request $request)
   {

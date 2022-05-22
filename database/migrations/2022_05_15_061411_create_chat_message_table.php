@@ -13,9 +13,9 @@ class CreateChatMessageTable extends Migration
      */
     public function up()
     {
-        Schema::create('chat_message', function (Blueprint $table) {
+        Schema::create('chats_messages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer("chat_id")->unsigned();
+            $table->integer("chats_id")->unsigned();
             $table->integer("user_id")->unsigned();
             $table->integer("room_id")->unsigned();
             $table->string("message");
@@ -30,6 +30,6 @@ class CreateChatMessageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chat_message');
+        Schema::dropIfExists('chats_messages');
     }
 }

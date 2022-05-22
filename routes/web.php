@@ -29,5 +29,6 @@ Route::post('/my_page2', 'My_pageController@my_page_update');
     //Route::post('/posts/{post}', 'UserController@update');
     //Route::delete('/posts/{post}', 'UserController@delete');
     //Route::get('/posts/{post}/edit', 'UserController@edit');
+    Route::get('/chats/{chats}', 'ChatsController@show');
     Route::get('/', 'UserController@index');
 });
