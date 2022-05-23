@@ -15,15 +15,12 @@
         </h1>
         <div class="content">
             <div class="content__chat">
-                @php
-                $chatsmessages=$chat->chatsmessage
-                @endphp
                 @foreach($chatsmessages as $chatmessage)
                 <h3>本文</h3>
-                <p>{{ $chatmessage->id }}</p>
+                <p>{{ $chatmessage->user->name }}</p>
                 <p>{{ $chatmessage->message }}</p>
-                
                 @endforeach
+                
             </div>
         </div>
         <div class="footer">

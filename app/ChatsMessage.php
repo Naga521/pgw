@@ -9,7 +9,12 @@ class ChatsMessage extends Model
 {
 public function chat()   
 {
-return $this->belongsTo('App\Chats');  
+return $this->belongsTo('App\Chats','chat_id');  
+}
+
+public function user()   
+{
+return $this->belongsTo('App\User', 'user_id');  
 }
 
 public function create(Category $category)
