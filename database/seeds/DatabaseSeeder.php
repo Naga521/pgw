@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     $this->call(ChatmessageTableSeeder::class);
     $this->call(ChatsSeeder::class);
     $this->call(CodTableSeeder::class);
-    $this->call(DmTableSeeder::class);
+    $this->call(DmsTableSeeder::class);
     $this->call(ValorantTableSeeder::class);
+    $this->call(UsersTableSeeder::class);
 }
 }

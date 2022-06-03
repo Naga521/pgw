@@ -12,10 +12,20 @@ use Storage;
 
 class UserController extends Controller
 {
-public function index(User $user, Chats $chats)
-{
-    return view('User/index')->with(['users' => $user->getPaginateByLimit(),"chats"=>$chats->get()]);
-}
+  public function index(User $user, Chats $chats, Request $request)
+  {
+    $keyword = ($request)->input('keyword');
+
+        $query = User::query();
+
+        if(!empty($keyword)) {
+            $query->where('name', 'LIKE', "%{$keyword}%");
+        }
+
+        $users = $query->get();
+        //dd(User::find(2)->Dms);
+    return view('User/index')->with(['users' => $users,"chats"=>$chats->get(),"keyword"=>$keyword, "data"=>$users]);
+  }
  public function create(Request $request)
   {
       $user = Auth::user();
@@ -26,5 +36,6 @@ public function index(User $user, Chats $chats)
       $user->image_path = Storage::disk('s3')->url($path);
       $user->save();
 
-      return redirect('/my_page2');}
+      return redirect('/my_page2');
+  }
 }

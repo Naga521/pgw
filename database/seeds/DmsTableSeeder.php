@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DmTableSeeder extends Seeder
+class DmsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,13 +11,13 @@ class DmTableSeeder extends Seeder
      */
     public function run()
     {
-           DB::table('dm')->insert([
+         DB::table('dms')->insert([
         'id' => '1',
         'user_id' => '2',
         'to_id'=> '3',
         'message'=>'よろしくお願いします'
         ]);
-           DB::table('dm')->insert([
+           DB::table('dms')->insert([
         'id' => '2',
         'user_id' => '3',
         'to_id'=> '4',

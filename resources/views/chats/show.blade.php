@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> {{ $chat->room_name }}</title>
+        <title> {{ $chat->chatsmessage() }}</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="/css/app.css">
@@ -11,7 +11,7 @@
     
         <body>
         <h1 class="chat_title">
-            {{ $chat->room_name }}
+            {{ $chat->chatsmessage() }}
         </h1>
         <div class="content">
             <div class="content__chat">
