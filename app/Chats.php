@@ -8,6 +8,6 @@ class Chats extends Model
 {
 public function chatsmessage()
 {
-  return $this->hasMany('App\ChatsMessage','chat_id');
+  return $this->hasMany('App\ChatsMessage','room_id');
 }
 }

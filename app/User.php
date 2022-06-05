@@ -50,8 +50,12 @@ public function chatsmessage()
 {
 return $this->hasMany('App\ChatsMessage', 'user_id');  
 }
-public function Dms()
+public function Dms_to()
 {
-return $this->hasMany('App\Dm');
+return $this->hasMany('App\Dm','to_id');
+}
+public function Dms_from()
+{
+return $this->hasMany('App\Dm','user_id');
 }
 }

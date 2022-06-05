@@ -13,13 +13,11 @@ class ChatsSeeder extends Seeder
     {
           DB::table('chats')->insert([
         'id' => '1',
-        'chat_id' => '2',
         'room_name'=> '部屋1',
         ]);
            DB::table('chats')->insert([
         'id' => '2',
-        'chat_id' => '2',
-        'room_name'=> '部屋1',
+        'room_name'=> '部屋2',
         ]);
     }
 }

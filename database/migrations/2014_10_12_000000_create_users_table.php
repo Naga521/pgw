@@ -17,13 +17,13 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('icon')->nullable();
-            $table->integer('apex_user_id')->nullable();
-            $table->integer('valorant_user_id')->nullable();
-            $table->integer('cod_user_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('image_path')->nullable();
             $table->string('password');
+            $table->unsignedInteger('apex_user_id')->nullable();
+            $table->unsignedInteger('valorant_user_id')->nullable();
+            $table->unsignedInteger('cod_user_id')->nullable();
+            $table->string('icon_path')->nullable();
+           // $table->unsignedInteger('room_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

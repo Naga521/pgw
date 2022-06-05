@@ -38,4 +38,22 @@ class UserController extends Controller
 
       return redirect('/my_page2');
   }
+  public function show(User $user)
+  {
+    return view('User/show')->with(['user' => $user]);
+  }
+  
+   public function store(Request $request)
+  {
+    $keyword = ($request)->input('keyword');
+
+        $query = User::query();
+
+        if(!empty($keyword)) {
+            $query->where('name', 'LIKE', "%{$keyword}%");
+        }
+
+        $users = $query->get();
+    return view('User/search')->with(['users' => $users]);
+}
 }

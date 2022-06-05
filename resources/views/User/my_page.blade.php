@@ -7,7 +7,7 @@
 @endif
 
 <p>性別（男）</p>
-<p>Teruya0521</p>
+<p>名前：{{$my_user->name}}</p>
 <p>ゲーム名（apex)　</p>
 <p>レベル500</p>
 <p>バトロワランク（マスター）</p>
@@ -31,7 +31,7 @@
         <input type="file" name="top_image">
     </div>
     <input type="submit" value="保存">
-    <div class='戻る'>[<a href='/'>戻る</a>]</div>
+    <div class='戻る'>[<a href='/user'>戻る</a>]</div>
     
 
 @endsection

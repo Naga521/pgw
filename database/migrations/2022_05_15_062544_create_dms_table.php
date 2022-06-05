@@ -15,8 +15,8 @@ class CreateDmsTable extends Migration
     {
         Schema::create('dms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer("user_id")->unsigned();
-            $table->integer("to_id")->unsigned();
+            $table->unsignedInteger("user_id");
+            $table->unsignedInteger("to_id");
              $table->string("message");
             $table->timestamps();
         });
