@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class My_pageController extends Controller
 {
@@ -37,4 +38,8 @@ class My_pageController extends Controller
     }
         }
     }
+    public function edit(User $user)
+{
+    return view('User/my_page_edit')->with(['user' => $user]);
+}
 }

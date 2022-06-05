@@ -11,12 +11,12 @@ class ValorantTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('valorant')->insert([
+        DB::table('valorants')->insert([
         'id' => '1',
         'rank' => 'bronze',
         'offer'=> '楽しむ',
         ]);
-          DB::table('valorant')->insert([
+          DB::table('valorants')->insert([
         'id' => '2',
         'rank' => 'bronze',
         'offer'=> '楽しむ',

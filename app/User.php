@@ -58,4 +58,16 @@ public function Dms_from()
 {
 return $this->hasMany('App\Dm','user_id');
 }
+public function apex() 
+{
+return $this->belongsTo('App\Apex', 'apex_user_id');  
+}
+public function valorant() 
+{
+return $this->belongsTo('App\Valorant', 'valorant_user_id');  
+}
+public function cod() 
+{
+return $this->belongsTo('App\Cod', 'apex_user_id');  
+}
 }

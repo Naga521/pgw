@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/user', 'UserController@index')->name('users.index');
     Route::get('/my_page2', 'My_pageController@index');
     Route::post('/my_page2', 'My_pageController@my_page_update');
+     Route::get('/my_page2/edit', 'My_pageController@edit');
     //Route::post('/users', 'UserController@store');
     Route::put('/user/create', 'UserController@create');
     //Route::get('/users/{post}', 'UserController@show');

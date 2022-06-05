@@ -33,7 +33,7 @@ class UserController extends Controller
 
       $image = $request->file('top_image');
       $path = Storage::disk('s3')->putFile('/', $image, 'public');
-      $user->image_path = Storage::disk('s3')->url($path);
+      $user->icon_path = Storage::disk('s3')->url($path);
       $user->save();
 
       return redirect('/my_page2');

@@ -13,7 +13,7 @@ class CreateApexTable extends Migration
      */
     public function up()
     {
-        Schema::create('apex', function (Blueprint $table) {
+        Schema::create('apexes', function (Blueprint $table) {
             $table->bigIncrements('id');
              $table->string("battle_royale_rank");
               $table->string("arena_rank");
@@ -29,6 +29,6 @@ class CreateApexTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apex');
+        Schema::dropIfExists('apexes');
     }
 }

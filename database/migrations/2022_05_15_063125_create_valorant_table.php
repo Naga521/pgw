@@ -13,7 +13,7 @@ class CreateValorantTable extends Migration
      */
     public function up()
     {
-        Schema::create('valorant', function (Blueprint $table) {
+        Schema::create('valorants', function (Blueprint $table) {
             $table->bigIncrements('id');
              $table->string("rank");
               $table->string("offer");
@@ -28,6 +28,6 @@ class CreateValorantTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('valorant');
+        Schema::dropIfExists('valorants');
     }
 }

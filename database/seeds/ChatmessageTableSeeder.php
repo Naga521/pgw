@@ -19,20 +19,20 @@ class ChatmessageTableSeeder extends Seeder
         ]);
             DB::table('chats_messages')->insert([
         'id' => '2',
-        'user_id' => '1',
-        'room_id' => '5',
+        'user_id' => '2',
+        'room_id' => '1',
         'message' => 'よろしくお願いします',
         ]);
           DB::table('chats_messages')->insert([
         'id' => '3',
-        'user_id' => '2',
-        'room_id' => '6',
+        'user_id' => '3',
+        'room_id' => '2',
         'message' => 'よろしくお願いします',
         ]);
             DB::table('chats_messages')->insert([
         'id' => '4',
-        'user_id' => '3',
-        'room_id' => '7',
+        'user_id' => '4',
+        'room_id' => '4',
         'message' => 'よろしくお願いします',
         ]);
            DB::table('chats_messages')->insert([
