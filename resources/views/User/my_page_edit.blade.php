@@ -5,11 +5,13 @@
 @if (Session::has('message'))
     <p>{{ session('message') }}</p>
 @endif
-
-<div class="form-group row">
-    <h1>Apex</h1>
-    <label for="chk01" class="col-md-4 col-form-label text-md-right">レベル</label>
-    <div class="col-md-6">
+ <form action="/my_page2/{{ $user->id }}" method="POST">
+    @csrf
+    @method('PUT')
+    <div class="form-group row">
+      <h1>Apex</h1>
+      <label for="chk01" class="col-md-4 col-form-label text-md-right">レベル</label>
+      <div class="col-md-6">
         <div class="form-check">
            <input class="form-check-input" type="checkbox" id="chk01" name="chk01" value="chk01" checked="checked">
            <label class="form-check-label" for="chk01">0~100</label>
@@ -263,9 +265,9 @@
            <label class="form-check-label" for="chk053">ランク募集</label>
        </div>
      </div>
-     <a href="/my_page2">変更</a>
+     <input type="submit" value="保存">
 </div>
-
+</form>
 <!-- マイページ変更画面 -->
 <form action="/user/create" method="post" enctype='multipart/form-data'> 
     {{ csrf_field() }}

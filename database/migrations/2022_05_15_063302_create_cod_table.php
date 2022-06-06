@@ -15,6 +15,7 @@ class CreateCodTable extends Migration
     {
         Schema::create('cod', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer("level")->unsigned;
              $table->string("rank");
               $table->string("offer");
             $table->timestamps();

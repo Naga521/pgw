@@ -12,7 +12,6 @@
 */
 
 
-
 Auth::routes();
 
 
@@ -33,4 +32,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/users/{user}', 'UserController@show');
     Route::get('/dms/{user_id}/{user}', 'DmController@show');
     Route::get('/search', 'UserController@store');
+    Route::get('/my_page2/{user}/edit', 'UserController@edit');
+Route::put('/my_page2/{user}', 'UserController@update');
 });

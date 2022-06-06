@@ -13,13 +13,15 @@ class CodTableSeeder extends Seeder
     {
           DB::table('cod')->insert([
         'id' => '1',
-        'rank' => 'rookie',
-        'offer'=> '楽しむ',
+         'level' => '200',
+        'rank' => 'ルーキー',
+        'offer'=> '楽しくプレイ',
         ]);
           DB::table('cod')->insert([
         'id' => '2',
-        'rank' => 'rookie',
-        'offer'=> '楽しむ',
+         'level' => '200',
+        'rank' => 'ルーキー',
+        'offer'=> '楽しくプレイ',
         ]);
     }
 }

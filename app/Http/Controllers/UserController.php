@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Chats;
 use Storage;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -23,7 +24,6 @@ class UserController extends Controller
         }
 
         $users = $query->get();
-        //dd(User::find(2)->Dms);
     return view('User/index')->with(['users' => $users,"chats"=>$chats->get(),"keyword"=>$keyword, "data"=>$users]);
   }
  public function create(Request $request)
@@ -55,5 +55,12 @@ class UserController extends Controller
 
         $users = $query->get();
     return view('User/search')->with(['users' => $users]);
+}
+public function update(Request $request, User $user)
+{
+    $input_user = $request['user'];
+    $user->fill($input_user)->save();
+
+    return redirect('/my_page2/' . $user->id);
 }
 }

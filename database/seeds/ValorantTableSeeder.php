@@ -13,13 +13,15 @@ class ValorantTableSeeder extends Seeder
     {
         DB::table('valorants')->insert([
         'id' => '1',
-        'rank' => 'bronze',
-        'offer'=> '楽しむ',
+         'level' => '100',
+        'rank' => 'ブロンズ',
+        'offer'=> '楽しくプレイ',
         ]);
           DB::table('valorants')->insert([
         'id' => '2',
-        'rank' => 'bronze',
-        'offer'=> '楽しむ',
+         'level' => '100',
+        'rank' => 'ブロンズ',
+        'offer'=> '楽しくプレイ',
         ]);
     }
 }

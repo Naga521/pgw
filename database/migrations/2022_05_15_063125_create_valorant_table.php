@@ -15,6 +15,7 @@ class CreateValorantTable extends Migration
     {
         Schema::create('valorants', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer("level")->unsigned;
              $table->string("rank");
               $table->string("offer");
             $table->timestamps();

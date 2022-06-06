@@ -38,8 +38,9 @@ class My_pageController extends Controller
     }
         }
     }
-    public function edit(User $user)
+    public function edit()
 {
+    $user=Auth::user();
     return view('User/my_page_edit')->with(['user' => $user]);
 }
 }

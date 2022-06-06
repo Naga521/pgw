@@ -15,6 +15,7 @@ class CreateApexTable extends Migration
     {
         Schema::create('apexes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer("level")->unsigned;
              $table->string("battle_royale_rank");
               $table->string("arena_rank");
                $table->string("offer");

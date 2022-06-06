@@ -13,15 +13,17 @@ class ApexTableSeeder extends Seeder
     {
         DB::table('apexes')->insert([
         'id' => '1',
-        'battle_royale_rank' => 'bronze',
-        'arena_rank' => 'bronze',
-        'offer'=> '楽しむ',
+        'level' => '100',
+        'battle_royale_rank' => 'ブロンズ',
+        'arena_rank' => 'ブロンズ',
+        'offer'=> '楽しくプレイ',
         ]);
         DB::table('apexes')->insert([
         'id' => '2',
-        'battle_royale_rank' => 'bronze',
-        'arena_rank' => 'bronze',
-        'offer'=> '楽しむ',
+         'level' => '100',
+        'battle_royale_rank' => 'ブロンズ',
+        'arena_rank' => 'ブロンズ',
+        'offer'=> '楽しくプレイ',
         ]);
     }
 }
