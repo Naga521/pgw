@@ -10,6 +10,9 @@ use App\User;
 use App\Chats;
 use Storage;
 use App\Http\Requests\UserRequest;
+use App\Apex;
+use App\Cod;
+use App\Valorant;
 
 class UserController extends Controller
 {
@@ -56,11 +59,17 @@ class UserController extends Controller
         $users = $query->get();
     return view('User/search')->with(['users' => $users]);
 }
-public function update(Request $request, User $user)
+public function update(Request $request, User $user, Apex $apex, Cod $cod, Valorant $valorant)
 {
-    $input_user = $request['user'];
-    $user->fill($input_user)->save();
-
+    $input_cod = $request['cod'];
+    $input_apex = $request['apex'];
+    $input_valorant = $request['valorant'];
+    $input_apex=$apex->find(Auth::id());
+    $input_cod=$cod->find(Auth::id());
+    $input_valorant=$valorant->find(Auth::id());
+    $cod->fill($input_cod)->save();
+    $apex->fill($input_apex)->save();
+    $valorant->fill($input_valorant)->save();
     return redirect('/my_page2/' . $user->id);
 }
 }
