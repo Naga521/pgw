@@ -17,6 +17,7 @@
 @endphp
 <div>
     <p>APEX</p>
+    <p>{{ $apex->level }}</p>
     <p>{{ $apex->battle_royale_rank }}</p>
     <p>{{ $apex->arena_rank }}</p>
     <p>{{ $apex->offer }}</p>
@@ -24,11 +25,13 @@
 
 <div>
     <p>VALORANT</p>
+    <p>{{ $valo->level }}</p>
     <p>{{ $valo->rank }}</p>
     <p>{{ $valo->offer }}</p>
 </div>
 <div>
     <p>CoD</p>
+    <p>{{ $cod->level }}</p>
     <p>{{ $cod->rank }}</p>
     <p>{{ $cod->offer }}</p>
 </div>

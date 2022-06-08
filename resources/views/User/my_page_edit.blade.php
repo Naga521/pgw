@@ -23,7 +23,7 @@
       
       <div>
       <label for="apexrank">バトロワランク</label>
-        <select name='battle_royale_rank' id="apexrank">
+        <select name='apex[battle_royale_rank]' id="apexrank">
          <option value="ブロンズ">ブロンズ</option>
          <option value="シルバー">シルバー</option>
          <option value="ゴールド">ゴールド</option>
@@ -36,7 +36,7 @@
       
       <div>
         <label for="apexrank">アリーナランク</label>
-        <select name='arena_rank'id="apexrank">
+        <select name='apex[arena_rank]'id="apexrank">
          <option value="ブロンズ">ブロンズ</option>
          <option value="シルバー">シルバー</option>
          <option value="ゴールド">ゴールド</option>
@@ -48,7 +48,7 @@
       </div>
       <div>
        <label for="apexoffer">求める人</label>
-        <select name="offer" id="apexoffer">
+        <select name="apex[offer]" id="apexoffer">
          <option value="楽しくカジュアル">楽しくカジュアル</option>
          <option value="バトロワランク">バトロワランク</option>
          <option value="楽しくアリーナ">楽しくアリーナ</option>
@@ -68,7 +68,7 @@
       </div>
       <div>
       <label for="valorantrank">ランク</label>
-        <select name='rank' id="valorantrank">
+        <select name='valorant[rank]' id="valorantrank">
          <option value="アイアン">アイアン</option>
          <option value="ブロンズ">ブロンズ</option>
          <option value="シルバー">シルバー</option>
@@ -81,7 +81,7 @@
       </div>
      <div>
        <label for="valorantoffer">求める人</label>
-        <select name="offer" id="valorantoffer">
+        <select name="valorant[offer]" id="valorantoffer">
          <option value="楽しくプレイ">楽しくプレイ</option>
          <option value="ランク">ランク募集</option>
       </div>
@@ -99,7 +99,7 @@
       </div>
       <div>
       <label for="codrank">ランク</label>
-        <select name='rank' id="codrank">
+        <select name='cod[rank]' id="codrank">
          <option value="ルーキー">ルーキー</option>
          <option value="ベテラン">ベテラン</option>
          <option value="エリート">エリート</option>
@@ -110,7 +110,7 @@
       </div>
      <div>
        <label for="codoffer">求める人</label>
-        <select name="offer" id="codoffer">
+        <select name="cod[offer]" id="codoffer">
          <option value="楽しくプレイ">楽しくプレイ</option>
          <option value="ランク">ランク募集</option>
       </div>
