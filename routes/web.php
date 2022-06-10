@@ -28,6 +28,8 @@ Route::group(['middleware' => ['auth']], function(){
     //Route::post('/posts/{post}', 'UserController@update');
     //Route::delete('/posts/{post}', 'UserController@delete');
     //Route::get('/posts/{post}/edit', 'UserController@edit');
+    Route::get('/chats/create/{id}', 'ChatsController@create');
+    Route::post('/chats', 'ChatsController@store');
     Route::get('/chats/{chats}', 'ChatsController@show');
     Route::get('/users/{user}', 'UserController@show');
     Route::get('/dms/{user_id}/{user}', 'DmController@show');

@@ -10,13 +10,13 @@
     </head>
     
         <body>
+            [<a href='/chats/create/{{$chat->id}}'}>チャット</a>]
         <h1 class="chat_title">
             {{ $chat->room_name }}
         </h1>
         <div class="content">
             <div class="content__chat">
                 @foreach($chatsmessages as $chatmessage)
-                <h3>本文</h3>
                 <p>{{ $chatmessage->user->name }}</p>
                 <p>{{ $chatmessage->message }}</p>
                 @endforeach

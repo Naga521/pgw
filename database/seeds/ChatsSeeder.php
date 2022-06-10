@@ -12,11 +12,9 @@ class ChatsSeeder extends Seeder
     public function run()
     {
           DB::table('chats')->insert([
-        'id' => '1',
         'room_name'=> '部屋1',
         ]);
            DB::table('chats')->insert([
-        'id' => '2',
         'room_name'=> '部屋2',
         ]);
     }

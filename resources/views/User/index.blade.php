@@ -36,6 +36,8 @@
                    <h3 class='部屋１'>
                    <a href="/chats/{{ $chat->id }}">{{ $chat->room_name }}</a>
                    </h3>
+                   
+                   <a href="">{{ $chat->name }}</a>
                    @endforeach
                    <h3>ダイレクトメッセージ</h3>
                    @foreach ($users as $user)
