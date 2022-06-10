@@ -64,9 +64,9 @@ public function update(Request $request, User $user, Apex $apex, Cod $cod, Valor
     $input_cod = $request['cod'];
     $input_apex = $request['apex'];
     $input_valorant = $request['valorant'];
-    $input_apex=$apex->find(Auth::id());
-    $input_cod=$cod->find(Auth::id());
-    $input_valorant=$valorant->find(Auth::id());
+    $input_apex=$apex->find(Auth::id())->getAttributes();
+    $input_cod=$cod->find(Auth::id())->getAttributes();
+    $input_valorant=$valorant->find(Auth::id())->getAttributes();
     $cod->fill($input_cod)->save();
     $apex->fill($input_apex)->save();
     $valorant->fill($input_valorant)->save();
