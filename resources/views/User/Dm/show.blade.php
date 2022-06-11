@@ -11,6 +11,10 @@ $dms=$dm_to->concat($dm_from);
 $dms=$dms->sortBy("created_at");
 @endphp
 
+[<a href='/Dm/create/{{$dm->id}}'}>チャット</a>]
+ <h1 class="dm_title">
+   {{ $dm->to_id}}
+ </h1>
 @foreach($dms as $dm)
 @if($dm->user_id===\Auth::User()->id)
 <div>

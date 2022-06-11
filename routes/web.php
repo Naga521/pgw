@@ -30,6 +30,8 @@ Route::group(['middleware' => ['auth']], function(){
     //Route::get('/posts/{post}/edit', 'UserController@edit');
     Route::get('/chats/create/{id}', 'ChatsController@create');
     Route::post('/chats', 'ChatsController@store');
+    Route::get('/Dm/create/{id}', 'DmController@create');
+    Route::post('/dms', 'DmController@store');
     Route::get('/chats/{chats}', 'ChatsController@show');
     Route::get('/users/{user}', 'UserController@show');
     Route::get('/dms/{user_id}/{user}', 'DmController@show');

@@ -44,13 +44,14 @@
                    　　    @if($user->name!== \Auth::User()->name)
                    　　  <h2><a href="/dms/{{\Auth::User()->id}}/{{$user->id}}">{{$user->name}}とのメッセージ</a></h2> 
                    　　   @endif
-                   　　    {{--
-                   　　    @foreach($user->Dms as $Dm)
+                   　　    
+                   　　    @foreach($dms as $dm)
                    　　    <h4 class='home'>{{$Dm->user}}</h4></a>
-                   　　 @endforeach--}}
+                   　　 @endforeach
                    　　{{-- <h3 class='部屋１'>
                    　　<a href="/users/{{ $user->id }}">{{ $user->name }}</a>
                    　　</h3>--}}
+                   　　 <a href="">{{ $dm->name }}</a>
                    @endforeach
             </div>
     </body>
