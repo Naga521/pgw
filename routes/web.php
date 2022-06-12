@@ -12,10 +12,6 @@
 */
 
 
-Auth::routes();
-
-
-
 //Route::get('/test', [UserController::class, 'index'])->name('users.index');
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/user', 'UserController@index')->name('users.index');
@@ -44,3 +40,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/my_page2/{user}/edit', 'UserController@edit');
 Route::put('/my_page2/{user}', 'UserController@update');
 });
+
+
+Auth::routes();
+Route::get('/','HomeController@index');

@@ -5,6 +5,12 @@
 @if (Session::has('message'))
     <p>{{ session('message') }}</p>
 @endif
+@if ($user->icon_path)
+      　　　　　　　　　　　　　<!-- 画像を表示 -->
+      　　　　　　　　　　　　　　<img src="{{ $user->icon_path }}"  width=100 />
+    　　　　　　　　　　　　　　@else
+    　　　　　　　　　　　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
+    　　　　　　　　　　 @endif
 <p>名前：{{$user->name}}</p>
 <p>ゲーム名（apex)　</p>
 <p>レベル:{{$user->apex()->get()[0]->level}}</p>

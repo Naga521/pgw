@@ -20,13 +20,14 @@ $dms=$dms->sortBy("created_at");
 <p>{{\Auth::User()->name}}→{{$user->name}}：{{$dm->created_at}}</p>
 <a>{{$dm->message}}</a>
 </div>
+<hr>
 @elseif($dm->to_id===\Auth::User()->id)
 <div>
 <p>{{$user->name}}→{{\Auth::User()->name}}：{{$dm->created_at}}</p>
 <a>{{$dm->message}}</a>
 </div>
-@endif
 <hr>
+@endif
 @endforeach
 
 <form action="/dms/{{\Auth::User()->id}}/{{ $user->id }}" method="POST">
