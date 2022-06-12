@@ -11,6 +11,6 @@ public function chatsmessage()
   return $this->hasMany('App\ChatsMessage','chat_id');
 }
 protected $fillable = [
-    'body',
+    'room_name',
 ];
 }

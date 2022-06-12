@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Apex;
+use App\Valorant;
+use App\Cod;
+
 
 class My_pageController extends Controller
 {
@@ -43,4 +47,20 @@ class My_pageController extends Controller
     $user=Auth::user();
     return view('User/my_page_edit')->with(['user' => $user]);
 }
+
+public function update(Request $request, Apex $apex, Valorant $valorant, Cod $cod)
+    {
+        $input_apex = $request['apex'];
+    $apex::find($input_apex['id'])->fill($input_apex)->save();
+    
+    $input_valorant = $request['valorant'];
+    $valorant::find($input_valorant['id'])->fill($input_valorant)->save();
+    
+    $input_cod = $request['cod'];
+    $cod::find($input_cod['id'])->fill($input_cod)->save();
+        $id = Auth::id();
+        $user = DB::table('users')->find($id);
+       return view('User/my_page', ['my_user' => $user]);
+    }
+   
 }

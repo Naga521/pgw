@@ -28,4 +28,14 @@ public function store(ChatsRequest $request, Chats $chat, ChatsMessage $chatsmes
     $chatsmessages->fill($input)->save();
     return redirect('/chats/' . $input["chat_id"]);
 }
+ public function create_room()
+{
+    return view('chats/create_room');
+}   
+public function store_room(Request $request, Chats $chat)
+{
+    $input = $request['chat'];
+    $chat->fill($input)->save();
+    return redirect('/user');
+}
 }
