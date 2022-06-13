@@ -1,0 +1,12 @@
+body {
+    background-color: #FFFFBB
+}
+.form-group {
+    text-align: center;
+}
+.mypage{
+    display:inline;
+}
+.edit {
+    text-align: right;
+}

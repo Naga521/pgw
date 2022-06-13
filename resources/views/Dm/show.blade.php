@@ -33,12 +33,12 @@ $dms=$dms->sortBy("created_at");
 <form action="/dms/{{\Auth::User()->id}}/{{ $user->id }}" method="POST">
  @csrf
  <p>
-  コメント：<br>
-  <textarea name="dm[message]" cols="50" rows="5" placeholder="コメント内容"　required></textarea>
+  DM：<br>
+  <textarea name="dm[message]" cols="50" rows="5" placeholder="チャット内容を入力"　required></textarea>
   <input type="hidden" name="dm[user_id]", value={{\Auth::User()->id}} required></input>
   <input type="hidden" name="dm[to_id]", value={{$user->id}}></input>
  </p>
- <button type="submit">書き込む</button>
+ <button type="submit">送信</button>
 </form>
 
  <a href="/user">戻る</a>
