@@ -2,13 +2,12 @@
 
 @section('content')
 <head>　
-  <link rel="stylesheet" href="./css/editcss.css">
+  <link href="{{ asset('css/editcss.css') }}" rel="stylesheet">
 </head>
-
 @if (Session::has('message'))
     <p>{{ session('message') }}</p>
 @endif
-
+<body>
  <form action="/my_page2" method="POST">
     @csrf
     @method('PUT')
@@ -156,7 +155,6 @@
              </div>
            </div>
          </div>
-       </form>
        <div class="p-2 bd-highlight">
          <div class="border border-dark" style="padding:10px;">
            <h2>アイコン編集</h2>
@@ -173,7 +171,13 @@
              </div>
            </div>
          </div>
+         <div class="buttonGroup">
+        <div class="button02">
          <div class='戻る'>[<a href='/my_page2'>戻る</a>]</div>
+        </div>
+        </div>
        </form>
+       </form>
+       </body>
 
        @endsection

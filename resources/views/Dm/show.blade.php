@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('content')
+<head> 
+  <link href="{{ asset('css/dmshowcss.css') }}" rel="stylesheet">
+</head>
+
 @if (Session::has('message'))
     <p>{{ session('message') }}</p>
 @endif
@@ -11,9 +15,11 @@ $dms=$dm_to->concat($dm_from);
 $dms=$dms->sortBy("created_at");
 @endphp
 
+<div class="d-flex justify-content-center">
  <h1 class="dm_title">
-   {{ $user->name}}
+   {{ $user->name}}とのメッセージ
  </h1>
+ </div>
 @foreach($dms as $dm)
 @if($dm->user_id===\Auth::User()->id)
 <div>
@@ -39,7 +45,12 @@ $dms=$dms->sortBy("created_at");
   <input type="hidden" name="dm[to_id]", value={{$user->id}}></input>
  </p>
  <button type="submit">送信</button>
+ </div>
 </form>
-
+<div class="buttonGroup">
+    <div class="button01">
+      <div class="back">[
  <a href="/user">戻る</a>
+ </div>
+ </div>
 @endsection

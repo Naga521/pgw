@@ -10,9 +10,6 @@
 <div class="d-flex justify-content-center">
     <h1 class="text"> <a>マイページ</a></h1>
 </div>
-<div class="d-flex justify-content-end">
-    <h1 class="edit"><a href="/my_page2/edit">変更</a></h1>
-</div>
 @php
     $apex=\Auth::User()->apex()->get()[0];
     $valo=\Auth::User()->valorant()->get()[0];
@@ -31,33 +28,42 @@
     <div class="p-2 bd-highlight">
         <div class="border border-dark" style="padding:10px;">
     <p>APEX</p>
-    <p>{{ $apex->level }}</p>
-    <p>{{ $apex->battle_royale_rank }}</p>
-    <p>{{ $apex->arena_rank }}</p>
-    <p>{{ $apex->offer }}</p>
+    <p>レベル:{{ $apex->level }}</p>
+    <p>バトロワランク:{{ $apex->battle_royale_rank }}</p>
+    <p>アリーナランク:{{ $apex->arena_rank }}</p>
+    <p>求める人:{{ $apex->offer }}</p>
 </div>
 </div>
 
 <div class="p-2 bd-highlight">
     <div class="border border-dark" style="padding:10px;">
     <p>VALORANT</p>
-    <p>{{ $valo->level }}</p>
-    <p>{{ $valo->rank }}</p>
-    <p>{{ $valo->offer }}</p>
+    <p>レベル:{{ $valo->level }}</p>
+    <p>ランク:{{ $valo->rank }}</p>
+    <p>求める人:{{ $valo->offer }}</p>
 </div>
 </div>
 <div class="p-2 bd-highlight">
     <div class="border border-dark" style="padding:10px;">
     <p>CoD</p>
-    <p>{{ $cod->level }}</p>
-    <p>{{ $cod->rank }}</p>
-    <p>{{ $cod->offer }}</p>
+    <p>レベル:{{ $cod->level }}</p>
+    <p>ランク:{{ $cod->rank }}</p>
+    <p>求める人:{{ $cod->offer }}</p>
 </div>
 </div>
 </div>
 </div>
-
-<div class='戻る'>[<a href='/user'>戻る</a>]</div>
+<div class="buttonGroup">
+    <div class="button01">
+       <div class='戻る'><a href='/user'>戻る</a>
+    </div>
+    </div>
+    </div>
+    <div class="buttonGroup1">
+    <div class="button01">
+       <h1 class="edit"><a href="/my_page2/edit">変更</a></h1>
+    </div>
+</div>
     
 
 @endsection

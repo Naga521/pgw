@@ -1,5 +1,5 @@
 body {
-    background-color: #FFFF66;
+    background-color: #E0FFFF;
 }
 div .buttonGroup {
    position: absolute;
@@ -7,7 +7,7 @@ div .buttonGroup {
    left: 0;
 }
 
-.button02 a {
+.button07 a {
   display: flex;
   justify-content: space-between;
   align-items: start;
@@ -21,7 +21,7 @@ div .buttonGroup {
   transition: 0.3s;
 }
 
-.button02 a::after {
+.button07 a::after {
   content: '';
   width: 5px;
   height: 5px;
@@ -30,7 +30,7 @@ div .buttonGroup {
   transform: rotate(45deg);
 }
 
-.button02 a:hover {
+.button07 a:hover {
   transform: translateY(3px);
   text-decoration: none;
   box-shadow: 0 2px 0 #aaaaaa;

@@ -1,6 +1,19 @@
 body {
     background-color: #FFFFBB
 }
+
+div .buttonGroup {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+}
+
+div .buttonGroup1 {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+}
+
 .form-group {
     text-align: center;
 }
@@ -9,4 +22,33 @@ body {
 }
 .edit {
     text-align: right;
+}
+.button01 a {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin: 0 auto;
+  padding: 1em 2em;
+  width: 150px;
+  color: #333;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: #cccccc;
+  box-shadow: 0 5px 0 #aaaaaa;
+  transition: 0.3s;
+}
+
+.button01 a::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-top: 3px solid #333333;
+  border-right: 3px solid #333333;
+  transform: rotate(45deg);
+}
+
+.button01 a:hover {
+  transform: translateY(3px);
+  text-decoration: none;
+  box-shadow: 0 2px 0 #aaaaaa;
 }
