@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dm extends Model
 {
-public function user()
-{
-  return $this->belongsTo('App\User');
-}
-protected $fillable = [
+  public function user()
+  {
+    return $this->belongsTo('App\User');
+  }
+  protected $fillable = [
     'user_id',
     'to_id',
     'message',
-];
+  ];
 }

@@ -6,15 +6,15 @@
 </head>
 
 @if (Session::has('message'))
-    <p>{{ session('message') }}</p>
+  <p>{{ session('message') }}</p>
 @endif
 <div class="d-flex justify-content-center">
-@if ($user->icon_path)
-      　　　　　　　　　　　　　<!-- 画像を表示 -->
-      　　　　　　　　　　　　　　<img src="{{ $user->icon_path }}"  width=100 />
-    　　　　　　　　　　　　　　@else
-    　　　　　　　　　　　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
-    　　　　　　　　　　 @endif
+  @if ($user->icon_path)
+　　 <!-- 画像を表示 -->
+   　<img src="{{ $user->icon_path }}"  width=100 />
+ 　　@else
+ 　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
+　 @endif
 </div>
 <div class="d-flex justify-content-center">
   <h1>名前：{{$user->name}}</h1>
@@ -52,9 +52,8 @@
    </div>
  </div>
  <div class="buttonGroup">
- <div class="button05">
+   <div class="button05">
      <a href="/user">戻る</a>
-</div>
-</div>
-
+   </div>
+ </div>
 @endsection

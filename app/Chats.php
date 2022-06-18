@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Chats extends Model
 {
-public function chatsmessage()
-{
-  return $this->hasMany('App\ChatsMessage','chat_id');
-}
-protected $fillable = [
+  public function chatsmessage()
+  {
+    return $this->hasMany('App\ChatsMessage','chat_id');
+  }
+  protected $fillable = [
     'room_name',
-];
+  ];
 }

@@ -37,37 +37,37 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public function getByLimit(int $limit_count = 100)
-{
-    // updated_atで降順に並べたあと、limitで件数制限をかける
-    return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
-}
-public function getPaginateByLimit(int $limit_count = 10)
-{
-    // updated_atで降順に並べたあと、limitで件数制限をかける
-    return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
-}
-public function chatsmessage() 
-{
-return $this->hasMany('App\ChatsMessage', 'user_id');  
-}
-public function Dms_to()
-{
-return $this->hasMany('App\Dm','to_id');
-}
-public function Dms_from()
-{
-return $this->hasMany('App\Dm','user_id');
-}
-public function apex() 
-{
-return $this->belongsTo('App\Apex', 'apex_user_id');  
-}
-public function valorant() 
-{
-return $this->belongsTo('App\Valorant', 'valorant_user_id');  
-}
-public function cod() 
-{
-return $this->belongsTo('App\Cod', 'apex_user_id');  
-}
+    {
+      // updated_atで降順に並べたあと、limitで件数制限をかける
+      return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
+    }
+    public function getPaginateByLimit(int $limit_count = 10)
+    {
+      // updated_atで降順に並べたあと、limitで件数制限をかける
+      return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
+    public function chatsmessage() 
+    {
+      return $this->hasMany('App\ChatsMessage', 'user_id');  
+    }
+    public function Dms_to()
+    {
+      return $this->hasMany('App\Dm','to_id');
+    }
+    public function Dms_from()
+    {
+      return $this->hasMany('App\Dm','user_id');
+    }
+    public function apex() 
+    {
+      return $this->belongsTo('App\Apex', 'apex_user_id');  
+    }
+    public function valorant() 
+    {
+      return $this->belongsTo('App\Valorant', 'valorant_user_id');  
+    }
+    public function cod() 
+    {
+      return $this->belongsTo('App\Cod', 'apex_user_id');  
+    }
 }

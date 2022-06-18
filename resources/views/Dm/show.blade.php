@@ -5,52 +5,52 @@
 </head>
 
 @if (Session::has('message'))
-    <p>{{ session('message') }}</p>
+  <p>{{ session('message') }}</p>
 @endif
 
 @php
-$dm_to=$user->Dms_to()->get();
-$dm_from=$user->Dms_from()->get();
-$dms=$dm_to->concat($dm_from);
-$dms=$dms->sortBy("created_at");
+  $dm_to=$user->Dms_to()->get();
+  $dm_from=$user->Dms_from()->get();
+  $dms=$dm_to->concat($dm_from);
+  $dms=$dms->sortBy("created_at");
 @endphp
 
 <div class="d-flex justify-content-center">
- <h1 class="dm_title">
-   {{ $user->name}}とのメッセージ
- </h1>
- </div>
+  <h1 class="dm_title">
+    {{ $user->name}}とのメッセージ
+  </h1>
+</div>
 @foreach($dms as $dm)
 @if($dm->user_id===\Auth::User()->id)
-<div>
-<p>{{\Auth::User()->name}}→{{$user->name}}：{{$dm->created_at}}</p>
-<a>{{$dm->message}}</a>
-</div>
-<hr>
-@elseif($dm->to_id===\Auth::User()->id)
-<div>
-<p>{{$user->name}}→{{\Auth::User()->name}}：{{$dm->created_at}}</p>
-<a>{{$dm->message}}</a>
-</div>
-<hr>
+  <div>
+    <p>{{\Auth::User()->name}}→{{$user->name}}：{{$dm->created_at}}</p>
+    <a>{{$dm->message}}</a>
+  </div>
+  <hr>
+  @elseif($dm->to_id===\Auth::User()->id)
+  <div>
+    <p>{{$user->name}}→{{\Auth::User()->name}}：{{$dm->created_at}}</p>
+    <a>{{$dm->message}}</a>
+  </div>
+  <hr>
 @endif
 @endforeach
 
 <form action="/dms/{{\Auth::User()->id}}/{{ $user->id }}" method="POST">
- @csrf
- <p>
-  DM：<br>
-  <textarea name="dm[message]" cols="50" rows="5" placeholder="チャット内容を入力"　required></textarea>
-  <input type="hidden" name="dm[user_id]", value={{\Auth::User()->id}} required></input>
-  <input type="hidden" name="dm[to_id]", value={{$user->id}}></input>
- </p>
- <button type="submit">送信</button>
- </div>
+  @csrf
+  <p>
+    DM：<br>
+    <textarea name="dm[message]" cols="50" rows="5" placeholder="チャット内容を入力"　required></textarea>
+    <input type="hidden" name="dm[user_id]", value={{\Auth::User()->id}} required></input>
+    <input type="hidden" name="dm[to_id]", value={{$user->id}}></input>
+  </p>
+  <button type="submit">送信</button>
 </form>
 <div class="buttonGroup">
-    <div class="button01">
-      <div class="back">[
- <a href="/user">戻る</a>
- </div>
- </div>
+  <div class="button01">
+    <div class="back">
+      <a href="/user">戻る</a>
+    </div>
+  </div>
+</div>
 @endsection

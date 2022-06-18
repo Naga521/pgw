@@ -172,12 +172,11 @@
            </div>
          </div>
          <div class="buttonGroup">
-        <div class="button02">
-         <div class='戻る'>[<a href='/my_page2'>戻る</a>]</div>
-        </div>
-        </div>
-       </form>
-       </form>
-       </body>
-
-       @endsection
+           <div class="button02">
+             <div class='戻る'>[<a href='/my_page2'>戻る</a>]</div>
+           </div>
+         </div>
+           </form>
+ </form>
+</body>
+@endsection

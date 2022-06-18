@@ -22,14 +22,16 @@ class UserController extends Controller
 
         $query = User::query();
 
-        if(!empty($keyword)) {
+        if(!empty($keyword))
+        {
             $query->where('name', 'LIKE', "%{$keyword}%");
         }
 
         $users = $query->get();
-    return view('User/index')->with(['users' => $users,"chats"=>$chats->get(),"keyword"=>$keyword, "data"=>$users]);
+        return view('User/index')->with(['users' => $users,"chats"=>$chats->get(),"keyword"=>$keyword, "data"=>$users]);
   }
- public function create(Request $request)
+  
+  public function create(Request $request)
   {
       $user = Auth::user();
       $form = $request->all();
@@ -41,35 +43,36 @@ class UserController extends Controller
 
       return redirect('/my_page2');
   }
+  
   public function show(User $user)
   {
     return view('User/show')->with(['user' => $user]);
   }
   
    public function store(Request $request)
-  {
-    $keyword = ($request)->input('keyword');
+   {
+     $keyword = ($request)->input('keyword');
 
-        $query = User::query();
+     $query = User::query();
 
-        if(!empty($keyword)) {
-            $query->where('name', 'LIKE', "%{$keyword}%");
-        }
-
-        $users = $query->get();
-    return view('User/search')->with(['users' => $users]);
-}
-public function update(Request $request, User $user, Apex $apex, Cod $cod, Valorant $valorant)
-{
-    $input_cod = $request['cod'];
-    $input_apex = $request['apex'];
-    $input_valorant = $request['valorant'];
-    $input_apex=$apex->find(Auth::id())->getAttributes();
-    $input_cod=$cod->find(Auth::id())->getAttributes();
-    $input_valorant=$valorant->find(Auth::id())->getAttributes();
-    $cod->fill($input_cod)->save();
-    $apex->fill($input_apex)->save();
-    $valorant->fill($input_valorant)->save();
-    return redirect('/my_page2/' . $user->id);
-}
+     if(!empty($keyword)) 
+     {
+       $query->where('name', 'LIKE', "%{$keyword}%");
+     }
+     $users = $query->get();
+     return view('User/search')->with(['users' => $users]);
+    }
+    public function update(Request $request, User $user, Apex $apex, Cod $cod, Valorant $valorant)
+    {
+      $input_cod = $request['cod'];
+      $input_apex = $request['apex'];
+      $input_valorant = $request['valorant'];
+      $input_apex=$apex->find(Auth::id())->getAttributes();
+      $input_cod=$cod->find(Auth::id())->getAttributes();
+      $input_valorant=$valorant->find(Auth::id())->getAttributes();
+      $cod->fill($input_cod)->save();
+      $apex->fill($input_apex)->save();
+      $valorant->fill($input_valorant)->save();
+      return redirect('/my_page2/' . $user->id);
+    }
 }
