@@ -22,7 +22,7 @@
 </div>
 @foreach($dms as $dm)
 @if($dm->user_id===\Auth::User()->id)
-  <div>
+  <div style="text-align:right">
     <p>{{\Auth::User()->name}}→{{$user->name}}：{{$dm->created_at}}</p>
     <a>{{$dm->message}}</a>
   </div>
@@ -46,11 +46,10 @@
   </p>
   <button type="submit">送信</button>
 </form>
-<div class="buttonGroup">
+
   <div class="button01">
     <div class="back">
       <a href="/user">戻る</a>
     </div>
-  </div>
 </div>
 @endsection

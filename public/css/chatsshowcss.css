@@ -1,11 +1,7 @@
 body {
     background-color: #FFDEAD;
 }
-div .buttonGroup {
-   position: absolute;
-   bottom: 0;
-   left: 0;
-}
+
 
 .button04 a {
   display: flex;

@@ -146,10 +146,10 @@
                      </div>
                    </div>
                  </div>
-                 <div class="d-flex align-items-end">
-                   <div class="text-right">
+  
+                   <div class="pull-right" style="margin-left:auto">
                    <input type="submit" value="変更確定" />
-                 </div>
+                 
                  </div>
                </div>
              </div>
@@ -171,11 +171,11 @@
              </div>
            </div>
          </div>
-         <div class="buttonGroup">
-           <div class="button02">
-             <div class='戻る'>[<a href='/my_page2'>戻る</a>]</div>
-           </div>
-         </div>
+       <div class="button02">
+    <div class="back">
+      <a href="/user">戻る</a>
+    </div>
+</div>
            </form>
  </form>
 </body>

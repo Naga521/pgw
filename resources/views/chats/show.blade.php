@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <!DOCTYPE HTML>
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
   <head>
@@ -10,7 +12,6 @@
     <link href="{{ asset('css/chatsshowcss.css') }}" rel="stylesheet">
   </head>
   <body>
-    [<a href='/chats/create/{{$chat->id}}'}>チャット入力</a>]
     <div class="d-flex justify-content-center">
       <h1 class="chat_title">
         {{ $chat->room_name }}
@@ -19,11 +20,32 @@
     <div class="content">
       <div class="content__chat">
         @foreach($chatsmessages as $chatmessage)
-          <p>{{ $chatmessage->user->name }}</p>
+          
+          @if($chatmessage->user->id===\Auth::User()->id)
+  <div style="text-align:right">
+    <p>{{ $chatmessage->user->name }}</p>
           <p>{{ $chatmessage->message }}</p>
+  </div>
+  <hr>
+  @else
+  <div>
+     <p>{{ $chatmessage->user->name }}</p>
+          <p>{{ $chatmessage->message }}</p>
+  </div>
+  <hr>
+@endif
         @endforeach
       </div>
     </div>
+     <form action="/chats" method="POST">
+       @csrf
+    <p>
+      DM：<br>
+      <textarea name="chat[message]" cols="50" rows="5" placeholder="チャット内容を入力"　required></textarea>
+      <input type="hidden" name="chat[chat_id]", value={{$chat->id}} required></input>
+    </p>
+    <button type="submit">送信</button>
+  </form>
     <div class="footer">
       <div class="buttonGroup">
         <div class="button04">
@@ -35,3 +57,4 @@
     </div>
   </body>
 </html>
+@endsection
