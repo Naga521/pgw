@@ -28,7 +28,7 @@
   <div class="buttonGroup">
     <div class="button06">
       <div class="戻る">
-        [<a href="/user">戻る</a>]
+        <a href="/user">戻る</a>
       </div>
     </div>
   </div>

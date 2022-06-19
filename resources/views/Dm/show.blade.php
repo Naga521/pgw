@@ -23,14 +23,14 @@
 @foreach($dms as $dm)
 @if($dm->user_id===\Auth::User()->id)
   <div style="text-align:right">
-    <p>{{\Auth::User()->name}}→{{$user->name}}：{{$dm->created_at}}</p>
-    <a>{{$dm->message}}</a>
+    <p>{{\Auth::User()->name}}：{{$dm->created_at}}</p>
+    <h3><a>{{$dm->message}}</a></h3>
   </div>
   <hr>
   @elseif($dm->to_id===\Auth::User()->id)
   <div>
-    <p>{{$user->name}}→{{\Auth::User()->name}}：{{$dm->created_at}}</p>
-    <a>{{$dm->message}}</a>
+    <p>{{$user->name}}：{{$dm->created_at}}</p>
+    <h3><a>{{$dm->message}}</a></h3>
   </div>
   <hr>
 @endif

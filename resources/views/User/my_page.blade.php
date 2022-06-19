@@ -10,9 +10,23 @@
     <h1 class="text"> <a>マイページ</a></h1>
   </div>
   @php
-    $apex=\Auth::User()->apex()->get()[0];
-    $valo=\Auth::User()->valorant()->get()[0];
-    $cod=\Auth::User()->cod()->get()[0];
+  if(count(\Auth::User()->apex()->get())!=0){
+   $apex=\Auth::User()->apex()->get()[0];
+   }else{
+   $apex="";
+   }
+    if(count(\Auth::User()->valorant()->get())!=0){
+   $valo=\Auth::User()->valorant()->get()[0];
+   }else{
+   $valo="";
+   }
+  if(count(\Auth::User()->cod()->get())!=0){
+   $cod=\Auth::User()->cod()->get()[0];
+   }else{
+   $cod="";
+   }
+   
+    
   @endphp
   <div class="d-flex justify-content-center">
     @if (\Auth::User()->icon_path)
@@ -27,28 +41,34 @@
       <div class="p-2 bd-highlight">
         <div class="border border-dark" style="padding:10px;">
           <p>APEX</p>
+          @if($apex!=="")
           <p>レベル:{{ $apex->level }}</p>
           <p>バトロワランク:{{ $apex->battle_royale_rank }}</p>
           <p>アリーナランク:{{ $apex->arena_rank }}</p>
           <p>求める人:{{ $apex->offer }}</p>
+          @endif
         </div>
       </div>
 
       <div class="p-2 bd-highlight">
         <div class="border border-dark" style="padding:10px;">
           <p>VALORANT</p>
+          @if($valo!="")
           <p>レベル:{{ $valo->level }}</p>
           <p>ランク:{{ $valo->rank }}</p>
           <p>求める人:{{ $valo->offer }}</p>
+          @endif
         </div>
       </div>
       
       <div class="p-2 bd-highlight">
         <div class="border border-dark" style="padding:10px;">
           <p>CoD</p>
+          @if($cod!="")
           <p>レベル:{{ $cod->level }}</p>
           <p>ランク:{{ $cod->rank }}</p>
           <p>求める人:{{ $cod->offer }}</p>
+          @endif
         </div>
       </div>
     </div>

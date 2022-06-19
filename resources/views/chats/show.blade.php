@@ -23,14 +23,14 @@
           
           @if($chatmessage->user->id===\Auth::User()->id)
   <div style="text-align:right">
-    <p>{{ $chatmessage->user->name }}</p>
-          <p>{{ $chatmessage->message }}</p>
+    <p>{{ $chatmessage->user->name }}:{{$chatmessage->created_at}}</p>
+          <h3><p>{{ $chatmessage->message }}</p></h3>
   </div>
   <hr>
   @else
   <div>
-     <p>{{ $chatmessage->user->name }}</p>
-          <p>{{ $chatmessage->message }}</p>
+     <p>{{ $chatmessage->user->name }}:{{$chatmessage->created_at}}</p>
+          <h3><p>{{ $chatmessage->message }}</p></h3>
   </div>
   <hr>
 @endif
@@ -40,7 +40,7 @@
      <form action="/chats" method="POST">
        @csrf
     <p>
-      DM：<br>
+      チャット：<br>
       <textarea name="chat[message]" cols="50" rows="5" placeholder="チャット内容を入力"　required></textarea>
       <input type="hidden" name="chat[chat_id]", value={{$chat->id}} required></input>
     </p>

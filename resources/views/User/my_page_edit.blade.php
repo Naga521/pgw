@@ -7,7 +7,30 @@
 @if (Session::has('message'))
     <p>{{ session('message') }}</p>
 @endif
+
+   @php
+   //dd(\Auth::User()->apex()->get());
+  if(count(\Auth::User()->apex()->get())!=0){
+   $apex=\Auth::User()->apex()->get()[0];
+   }else{
+   $apex="";
+   }
+    if(count(\Auth::User()->valorant()->get())!=0){
+   $valo=\Auth::User()->valorant()->get()[0];
+   }else{
+   $valo="";
+   }
+  if(count(\Auth::User()->cod()->get())!=0){
+   $cod=\Auth::User()->cod()->get()[0];
+   }else{
+   $cod="";
+   }
+    
+  @endphp
+
+
 <body>
+ <script src=".js/edit.js"></script>
  <form action="/my_page2" method="POST">
     @csrf
     @method('PUT')
@@ -27,9 +50,8 @@
                      <option value=400>400</option>
                      <option value=500>500</option>
                    </select>
-                   <input type="hidden" name="apex[id]", value={{\Auth::User()->apex()->get()[0]->id}}></input>
-                   <input type="hidden" name="apex[created_at]", value={{\Auth::User()->apex()->get()[0]->create}}></input>
-                 </div>
+                  
+                   </div>
       
                  <div>
                    <label for="apexrank">バトロワランク</label>
@@ -65,7 +87,14 @@
                     <option value="アリーナランク">アリーナランク</option>
                    </select>
                  </div>
+                 @if($apex!="")
+                  <input type="hidden" name="apex[id]", value={{\Auth::User()->apex()->get()[0]->id}}></input>
+                   <input type="hidden" name="apex[created_at]", value={{\Auth::User()->apex()->get()[0]->create}}></input>
+                  @else
+                   <input type="hidden" name="apex[id]", value=-1></input>
+                  @endif
                </div>
+               
              
              
                <div class="p-2 bd-highlight">
@@ -80,8 +109,12 @@
                        <option value=400>400</option>
                        <option value=500>500</option>
                      </select>
+                     @if($valo!="")
                      <input type="hidden" name="valorant[id]", value={{\Auth::User()->valorant()->get()[0]->id}}></input>
-                     <input type="hidden" name="valorant[created_at]", value={{\Auth::User()->apex()->get()[0]->create}}></input>
+                     <input type="hidden" name="valorant[created_at]", value={{\Auth::User()->valorant()->get()[0]->create}}></input>
+                   @else
+                    <input type="hidden" name="valorant[id]", value=-1></input>
+                   @endif
                    </div>
                    <div>
                      <label for="valorantrank">ランク</label>
@@ -123,8 +156,12 @@
                        <option value=900>900</option>
                        <option value=1000>1000</option>
                      </select>
+                     @if($cod!="")
                      <input type="hidden" name="cod[id]", value={{\Auth::User()->cod()->get()[0]->id}}></input>
                      <input type="hidden" name="cod[created_at]", value={{\Auth::User()->apex()->get()[0]->create}}></input>
+                     @else
+                     <input type="hidden" name="cod[id]", value=-1></input>
+                     @endif
                    </div>
                    <div>
                      <label for="codrank">ランク</label>

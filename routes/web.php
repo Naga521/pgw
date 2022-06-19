@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth']], function(){
 Route::put('/my_page2/{user}', 'UserController@update');
 });
 
-
+Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback');
 Auth::routes();
 Route::get('/','HomeController@index');

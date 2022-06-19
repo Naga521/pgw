@@ -48,16 +48,38 @@ class My_pageController extends Controller
         $user=Auth::user();
         return view('User/my_page_edit')->with(['user' => $user]);
       }
-      public function update(Request $request, Apex $apex, Valorant $valorant, Cod $cod)
+      public function update(Request $request, Apex $apex, Valorant $valorant, Cod $cod,User $user)
         {
+          //$input_user["id"]=\Auth::User()->id;
+          $input_user=[];
           $input_apex = $request['apex'];
+          if($input_apex["id"]!=-1){
           $apex::find($input_apex['id'])->fill($input_apex)->save();
-            
+          }else{
+            $input_apex["id"]=count($apex->get());
+            $apex->fill($input_apex)->save();
+             $input_user["apex_user_id"]=$input_apex["id"];
+          }
           $input_valorant = $request['valorant'];
-          $valorant::find($input_valorant['id'])->fill($input_valorant)->save();
+          if($input_valorant["id"]!=-1){
+         $valorant::find($input_valorant['id'])->fill($input_valorant)->save();
+          }else{
+            $input_valorant["id"]=count($valorant->get());
+            $valorant->fill($input_valorant)->save();
+             $input_user["valorant_user_id"]=$input_valorant["id"];
+          }
             
           $input_cod = $request['cod'];
-          $cod::find($input_cod['id'])->fill($input_cod)->save();
+          if($input_cod["id"]!=-1){
+         $cod::find($input_cod['id'])->fill($input_cod)->save();
+          }else{
+            $input_cod["id"]=count($cod->get());
+            $cod->fill($input_cod)->save();
+            $input_user["cod_user_id"]=$input_cod["id"];
+          }
+          $user::find(\Auth::User()->id)->fill($input_user)->save();
+          
+          
           $id = Auth::id();
           $user = DB::table('users')->find($id);
           return view('User/my_page', ['my_user' => $user]);
