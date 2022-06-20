@@ -30,10 +30,13 @@
 
 
 <body>
- <script src=".js/edit.js"></script>
- <form action="/my_page2" method="POST">
+ <script src="{{mix('js/edit.js')}}" defer>
+ </script>
+ <form action="/my_page2" id="my_page" method="POST">
     @csrf
     @method('PUT')
+    
+    
        <div class="bd-highlight mb-3">
          <div class="p-2 bd-highlight">
            <div class="border border-dark" style="padding:10px;">
@@ -185,18 +188,20 @@
                  </div>
   
                    <div class="pull-right" style="margin-left:auto">
-                   <input type="submit" value="変更確定" />
-                 
+                  
+                 <button id="btn" type="button">変更確定</button>
+                 <p id="txt"></p>
                  </div>
                </div>
              </div>
            </div>
          </div>
+         </form>
        <div class="p-2 bd-highlight">
          <div class="border border-dark" style="padding:10px;">
            <h2>アイコン編集</h2>
            <!-- マイページ変更画面 -->
-           <form action="/user/create" method="post" enctype='multipart/form-data'> 
+           <form id="icon" action="/user/create" method="post" enctype='multipart/form-data'> 
              {{ csrf_field() }}
              @method('PUT')
              <!-- 画像内容 -->
@@ -204,7 +209,8 @@
                <input type="file" name="top_image">
              </div>
              <div class="text-right .align-items-end">
-               <input type="submit" value="保存" />
+               <button id="keep" type="button">保存</button>
+               <p id="txt1"></p>
              </div>
            </div>
          </div>
@@ -212,8 +218,7 @@
     <div class="back">
       <a href="/user">戻る</a>
     </div>
-</div>
-           </form>
- </form>
+   </div>
+  </form>
 </body>
 @endsection

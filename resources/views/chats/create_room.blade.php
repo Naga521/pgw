@@ -8,12 +8,14 @@
   <link href="{{ asset('css/chatscreatecss.css') }}" rel="stylesheet">
 </head>
 <body>
+  <script src="{{mix('js/room.js')}}" defer>
+ </script>
   <div class="d-flex justify-content-center">
     <div>
       <h1>チャット部屋作成</h1>
     </div>
   </div>
-  <form action="/chats/redirect" method="POST">
+  <form action="/chats/redirect" id= room method="POST">
     @csrf
     <div class="body">
       <div class="d-flex justify-content-center">
@@ -22,7 +24,8 @@
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <input type="submit" value="保存"/>
+      <button id="room" type="button">部屋作成</button>
+      <p id="txt"></p>
     </div>
   </form>
   <div class="buttonGroup">

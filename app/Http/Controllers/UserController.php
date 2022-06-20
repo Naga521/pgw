@@ -34,8 +34,6 @@ class UserController extends Controller
   public function create(Request $request)
   {
       $user = Auth::user();
-      $form = $request->all();
-
       $image = $request->file('top_image');
       $path = Storage::disk('s3')->putFile('/', $image, 'public');
       $user->icon_path = Storage::disk('s3')->url($path);
