@@ -21,3 +21,17 @@ body {
 .flex > *{
     border: 3px solid #aaa;
 }
+
+h3 {
+  border-bottom: solid 3px #cce4ff;
+  position: relative;
+}
+
+h3:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px #5472cd;
+  bottom: -3px;
+  width: 20%;
+}

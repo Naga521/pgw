@@ -187,38 +187,37 @@
                    </div>
                  </div>
   
-                   <div class="pull-right" style="margin-left:auto">
-                  
-                 <button id="btn" type="button">変更確定</button>
-                 <p id="txt"></p>
+                 <div class="pull-right" style="margin-left:auto">
+                   <button id="btn" type="button">変更確定</button>
+                   <p id="txt"></p>
                  </div>
                </div>
              </div>
            </div>
          </div>
          </form>
-       <div class="p-2 bd-highlight">
-         <div class="border border-dark" style="padding:10px;">
-           <h2>アイコン編集</h2>
-           <!-- マイページ変更画面 -->
-           <form id="icon" action="/user/create" method="post" enctype='multipart/form-data'> 
-             {{ csrf_field() }}
-             @method('PUT')
-             <!-- 画像内容 -->
-             <div>
-               <input type="file" name="top_image">
-             </div>
-             <div class="text-right .align-items-end">
-               <button id="keep" type="button">保存</button>
-               <p id="txt1"></p>
+         <div class="p-2 bd-highlight">
+           <div class="border border-dark" style="padding:10px;">
+             <h2>アイコン編集</h2>
+             <!-- マイページ変更画面 -->
+             <form id="icon" action="/user/create" method="post" enctype='multipart/form-data'> 
+               {{ csrf_field() }}
+               @method('PUT')
+               <!-- 画像内容 -->
+               <div>
+                 <input type="file" name="top_image">
+               </div>
+               <div class="text-right .align-items-end">
+                 <button id="keep" type="button">保存</button>
+                 <p id="txt1"></p>
+               </div>
              </div>
            </div>
+         <div class="button02">
+           <div class="back">
+             <a href="/user">戻る</a>
+           </div>
          </div>
-       <div class="button02">
-    <div class="back">
-      <a href="/user">戻る</a>
-    </div>
-   </div>
-  </form>
+    </form>
 </body>
 @endsection
