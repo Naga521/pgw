@@ -39,6 +39,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/search', 'UserController@store');
     Route::get('/my_page2/{user}/edit', 'UserController@edit');
 Route::put('/my_page2/{user}', 'UserController@update');
+Route::post('/users/{user}/follow', 'FollowUserController@follow');
+Route::post('/users/{user}/unfollow', 'FollowUserController@unfollow');
+
 });
 
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle');

@@ -26,9 +26,9 @@ class UserController extends Controller
         {
             $query->where('name', 'LIKE', "%{$keyword}%");
         }
-
+    
         $users = $query->get();
-        return view('User/index')->with(['users' => $users,"chats"=>$chats->get(),"keyword"=>$keyword, "data"=>$users]);
+        return view('User/index')->with(['users' => $users,"chats"=>$chats->get(),"keyword"=>$keyword, "data"=>Auth::user(), 'friends' => Auth::user()->follows()->pluck('name')->toArray()]);
   }
   
   public function create(Request $request)

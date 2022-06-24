@@ -32,15 +32,32 @@
     　　　　　　　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
     　　　　　 　　　　 @endif
     　　　　　　　　　 </div>
-               @endforeach
+              @endforeach
           </div>
+          
+          <h3>フレンド一覧</h3>
+          <div class=flex> 
+　　　　　  @foreach( $data->follows as $friend )
+　　　　　  <div>
+　　　　　    <a href="/users/{{$friend->id}}"><h4 class='home'>{{ $friend->name }}</h4></a>
+　　　　　    @if ($user->icon_path)
+      　　　   　　<!-- 画像を表示 -->
+      　　　    　　<img src="{{ $user->icon_path }}"  width=100 />
+    　　　　　  　　　　@else
+    　　　　　  　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
+　　　　　    @endif
+    　　　　　　 </div>
+            @endforeach
+            </div>
+          
+          
           <h3>グループチャット一覧</h3>
             <div class=flex>
               @foreach ($chats as $chat)
                 <div>
-                  <h3 class='部屋１'>
+                  <h2 class='部屋１'>
                     <a href="/chats/{{ $chat->id }}">{{ $chat->room_name }}</a>
-                  </h3>
+                  </h2>
                   <a href="">{{ $chat->name }}</a>
                 </div>
               @endforeach
@@ -51,7 +68,7 @@
               @foreach ($users as $user)  
                 @if($user->name!== \Auth::User()->name)
                   <div>
-                   　<h3><a href="/dms/{{\Auth::User()->id}}/{{$user->id}}">{{$user->name}}とのメッセージ</a></h3>
+                   　<h2><a href="/dms/{{\Auth::User()->id}}/{{$user->id}}">{{$user->name}}とのメッセージ</a></h2>
                   </div>
                 @endif
               @endforeach
