@@ -35,6 +35,7 @@
   <hr>
 @endif
         @endforeach
+        {{$chatsmessages->links()}}
       </div>
     </div>
      <form action="/chats" method="POST">

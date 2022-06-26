@@ -14,7 +14,7 @@ class ChatsController extends Controller
   {
     $chatsmessage=$chats->chatsmessage();
     $chatsmessages=$chatsmessage->where('chat_id', $chats->id)->get();
-    return view('chats/show')->with(['chat' => $chats, 'chatsmessages'=>$chatsmessages]);
+    return view('chats/show')->with(['chat' => $chats, 'chatsmessages'=>$chatsmessage->orderBy('created_at','desc')->paginate(10)]);
   }
   public function create($id)
   {
@@ -38,4 +38,5 @@ class ChatsController extends Controller
     $chat->fill($input)->save();
     return redirect('/user');
   }
+  
 }

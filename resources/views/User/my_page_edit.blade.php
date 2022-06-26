@@ -47,15 +47,7 @@
                  <div>
                    <label for="apexlevel">レベル</label>
                    <select name="apex[level]" id="apexlevel">
-                    @if($apex->level===100)
-                     <option value=100 selected>100</option>
-                     @else
-                      <option value=100>100</option>
-                     @endif
-                     <option value=200>200</option>
-                     <option value=300>300</option>
-                     <option value=400>400</option>
-                     <option value=500>500</option>
+                    {{App\Services\ApexUtility::apexlevel($apex->level)}}
                    </select>
                   
                    </div>
@@ -63,35 +55,20 @@
                  <div>
                    <label for="apexrank">バトロワランク</label>
                    <select name='apex[battle_royale_rank]' id="apexrank">
-                     <option value="ブロンズ">ブロンズ</option>
-                     <option value="シルバー">シルバー</option>
-                     <option value="ゴールド">ゴールド</option>
-                     <option value="プラチナ">プラチナ</option>
-                     <option value="ダイヤ">ダイヤ</option>
-                     <option value="マスター">マスター</option>
-                     <option value="プレデター">プレデター</option>
-                   </select>
+                     {{App\Services\ApexUtility::apexbattle_royale_rank($apex->battle_royale_rank)}}
+                     </select>
                  </div>
       
                  <div>
                    <label for="apexrank">アリーナランク</label>
                    <select name='apex[arena_rank]'id="apexrank">
-                     <option value="ブロンズ">ブロンズ</option>
-                     <option value="シルバー">シルバー</option>
-                     <option value="ゴールド">ゴールド</option>
-                     <option value="プラチナ">プラチナ</option>
-                     <option value="ダイヤ">ダイヤ</option>
-                     <option value="マスター">マスター</option>
-                     <option value="プレデター">プレデター</option>
+                     {{App\Services\ApexUtility::apexarena_rank($apex->arena_rank)}}
                    </select>
                  </div>
                  <div>
                   <label for="apexoffer">求める人</label>
                    <select name="apex[offer]" id="apexoffer">
-                    <option value="楽しくカジュアル">楽しくカジュアル</option>
-                    <option value="バトロワランク">バトロワランク</option>
-                    <option value="楽しくアリーナ">楽しくアリーナ</option>
-                    <option value="アリーナランク">アリーナランク</option>
+                   {{App\Services\ApexUtility::apexoffer($apex->offer)}}
                    </select>
                  </div>
                  @if($apex!="")
@@ -110,11 +87,7 @@
                    <div>
                      <label for="level2">レベル</label>
                      <select name="valorant[level]" id="valorantlevel">
-                       <option value=100>100</option>
-                       <option value=200>200</option>
-                       <option value=300>300</option>
-                       <option value=400>400</option>
-                       <option value=500>500</option>
+                       {{App\Services\ValorantUtility::valorantlevel($valo->level)}}
                      </select>
                      @if($valo!="")
                      <input type="hidden" name="valorant[id]", value={{\Auth::User()->valorant()->get()[0]->id}}></input>
@@ -126,21 +99,13 @@
                    <div>
                      <label for="valorantrank">ランク</label>
                        <select name='valorant[rank]' id="valorantrank">
-                         <option value="アイアン">アイアン</option>
-                         <option value="ブロンズ">ブロンズ</option>
-                         <option value="シルバー">シルバー</option>
-                         <option value="ゴールド">ゴールド</option>
-                         <option value="プラチナ">プラチナ</option>
-                         <option value="ダイヤ">ダイヤ</option>
-                         <option value="イモータル">イモータル</option>
-                         <option value="レディアント">レディアント</option>
+                         {{App\Services\ValorantUtility::valorantrank($valo->rank)}}
                        </select>
                    </div>
                    <div>
                      <label for="valorantoffer">求める人</label>
                      <select name="valorant[offer]" id="valorantoffer">
-                       <option value="楽しくプレイ">楽しくプレイ</option>
-                       <option value="ランク">ランク募集</option>
+                      {{App\Services\ValorantUtility::valorantoffer($valo->offer)}}
                      </select>
                    </div>
                  </div>
@@ -152,16 +117,7 @@
                    <div>
                      <label for="codlevel">レベル</label>
                      <select name="cod[level]" id="codlevel">
-                       <option value=100>100</option>
-                       <option value=200>200</option>
-                       <option value=300>300</option>
-                       <option value=400>400</option>
-                       <option value=500>500</option>
-                       <option value=600>600</option>
-                       <option value=700>700</option>
-                       <option value=800>800</option>
-                       <option value=900>900</option>
-                       <option value=1000>1000</option>
+                       {{App\Services\CodUtility::codlevel($cod->level)}}
                      </select>
                      @if($cod!="")
                      <input type="hidden" name="cod[id]", value={{\Auth::User()->cod()->get()[0]->id}}></input>
@@ -173,19 +129,13 @@
                    <div>
                      <label for="codrank">ランク</label>
                        <select name='cod[rank]' id="codrank">
-                         <option value="ルーキー">ルーキー</option>
-                         <option value="ベテラン">ベテラン</option>
-                         <option value="エリート">エリート</option>
-                         <option value="プロ">プロ</option>
-                         <option value="マスター">マスター</option>
-                         <option value="レジェンド">レジェンド</option>
+                        {{App\Services\CodUtility::codrank($cod->rank)}}
                        </select>
                      </div>
                      <div>
                        <label for="codoffer">求める人</label>
                        <select name="cod[offer]" id="codoffer">
-                         <option value="楽しくプレイ">楽しくプレイ</option>
-                         <option value="ランク">ランク募集</option>
+                        {{App\Services\CodUtility::codoffer($cod->offer)}}
                        </select>
                      </div>
                    </div>
