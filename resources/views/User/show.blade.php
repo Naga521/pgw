@@ -23,12 +23,16 @@
 @if(\Auth::User()->follows()->where('followed_user_id','=', $user->id)->get()->count()!==0)
 <form action="/users/{{$user->id}}/unfollow" method=POST>
     @csrf
-    <button>unfollow</button>
+    <div class="button005">
+    <button>フォロー解除</button>
+    </div>
 </form>
 @elseif(\Auth::User()->follows()->where('followed_user_id','=', $user->id)->get()->count()===0 && $user->id !== \Auth::User()->id)
 <form action="/users/{{$user->id}}/follow" method=POST>
     @csrf
-    <button>follow</button>
+    <div class="button005">
+    <button>フォローする</button>
+    </div>
 </form>
 @endif
      @php

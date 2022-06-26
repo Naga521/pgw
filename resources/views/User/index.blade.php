@@ -35,9 +35,24 @@
               @endforeach
           </div>
           
-          <h3>フレンド一覧</h3>
+          <h3>フォロー一覧</h3>
           <div class=flex> 
-　　　　　  @foreach( $data->follows as $friend )
+　　　　　  @foreach( $data->follows()->get() as $friend )
+　　　　　  <div>
+　　　　　    <a href="/users/{{$friend->id}}"><h4 class='home'>{{ $friend->name }}</h4></a>
+　　　　　    @if ($user->icon_path)
+      　　　   　　<!-- 画像を表示 -->
+      　　　    　　<img src="{{ $user->icon_path }}"  width=100 />
+    　　　　　  　　　　@else
+    　　　　　  　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
+　　　　　    @endif
+    　　　　　　 </div>
+            @endforeach
+          </div>
+          
+          <h3>フォロワー一覧</h3>
+          <div class=flex> 
+　　　　　  @foreach( $data->FollowUsers()->get() as $friend )
 　　　　　  <div>
 　　　　　    <a href="/users/{{$friend->id}}"><h4 class='home'>{{ $friend->name }}</h4></a>
 　　　　　    @if ($user->icon_path)
