@@ -47,7 +47,11 @@
                  <div>
                    <label for="apexlevel">レベル</label>
                    <select name="apex[level]" id="apexlevel">
-                     <option value=100>100</option>
+                    @if($apex->level===100)
+                     <option value=100 selected>100</option>
+                     @else
+                      <option value=100>100</option>
+                     @endif
                      <option value=200>200</option>
                      <option value=300>300</option>
                      <option value=400>400</option>

@@ -19,6 +19,18 @@
 <div class="d-flex justify-content-center">
   <h1>名前：{{$user->name}}</h1>
 </div>
+
+@if(\Auth::User()->follows()->where('followed_user_id','=', $user->id)->get()->count()!==0)
+<form action="/users/{{$user->id}}/unfollow" method=POST>
+    @csrf
+    <button>unfollow</button>
+</form>
+@elseif(\Auth::User()->follows()->where('followed_user_id','=', $user->id)->get()->count()===0 && $user->id !== \Auth::User()->id)
+<form action="/users/{{$user->id}}/follow" method=POST>
+    @csrf
+    <button>follow</button>
+</form>
+@endif
      @php
   if(count($user->apex()->get())!=0){
    $apex=$user->apex()->get()[0];

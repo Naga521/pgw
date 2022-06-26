@@ -48,8 +48,7 @@
 　　　　　    @endif
     　　　　　　 </div>
             @endforeach
-            </div>
-          
+          </div>
           
           <h3>グループチャット一覧</h3>
             <div class=flex>

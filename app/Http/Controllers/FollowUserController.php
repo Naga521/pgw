@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers;
@@ -15,7 +14,8 @@ class FollowUserController extends Controller
             'followed_user_id' => $user->id,
         ]);
         $followCount = count(FollowUser::where('followed_user_id', $user->id)->get());
-        return response()->json(['followCount' => $followCount]);
+        //return response()->json(['followCount' => $followCount]);
+        return redirect('/users/'.$user->id);
     }
 
     public function unfollow(User $user) {
@@ -23,7 +23,7 @@ class FollowUserController extends Controller
         $follow->delete();
         $followCount = count(FollowUser::where('followed_user_id', $user->id)->get());
 
-        return response()->json(['followCount' => $followCount]);
+        return redirect('/users/'.$user->id);
     }
 }
 
