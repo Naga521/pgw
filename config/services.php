@@ -33,6 +33,6 @@ return [
     'google' => [
     'client_id' => env('GOOGLE_CLIENT_ID'),
     'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-    'redirect' => 'https://70de7e2ce9764d7eb5d9456b3a64f462.vfs.cloud9.us-east-1.amazonaws.com:8080/login/google/callback',
+    'redirect' => 'https://warm-headland-05476.herokuapp.com/login/google/callback',
 ]
 ];
