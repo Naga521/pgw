@@ -47,28 +47,27 @@
                  <div>
                    <label for="apexlevel">レベル</label>
                    <select name="apex[level]" id="apexlevel">
-                    {{App\Services\ApexUtility::apexlevel($apex->level)}}
+                    {{App\Services\ApexUtility::apexlevel($apex)}}
                    </select>
                   
                    </div>
-      
                  <div>
                    <label for="apexrank">バトロワランク</label>
                    <select name='apex[battle_royale_rank]' id="apexrank">
-                     {{App\Services\ApexUtility::apexbattle_royale_rank($apex->battle_royale_rank)}}
+                    {{App\Services\ApexUtility::apexbattle_royale_rank($apex)}}
                      </select>
                  </div>
       
                  <div>
                    <label for="apexrank">アリーナランク</label>
                    <select name='apex[arena_rank]'id="apexrank">
-                     {{App\Services\ApexUtility::apexarena_rank($apex->arena_rank)}}
+                     {{App\Services\ApexUtility::apexarena_rank($apex)}}
                    </select>
                  </div>
                  <div>
                   <label for="apexoffer">求める人</label>
                    <select name="apex[offer]" id="apexoffer">
-                   {{App\Services\ApexUtility::apexoffer($apex->offer)}}
+                    {{App\Services\ApexUtility::apexoffer($apex)}}
                    </select>
                  </div>
                  @if($apex!="")
@@ -87,7 +86,7 @@
                    <div>
                      <label for="level2">レベル</label>
                      <select name="valorant[level]" id="valorantlevel">
-                       {{App\Services\ValorantUtility::valorantlevel($valo->level)}}
+                       {{App\Services\ValorantUtility::valorantlevel($valo)}}
                      </select>
                      @if($valo!="")
                      <input type="hidden" name="valorant[id]", value={{\Auth::User()->valorant()->get()[0]->id}}></input>
@@ -99,13 +98,13 @@
                    <div>
                      <label for="valorantrank">ランク</label>
                        <select name='valorant[rank]' id="valorantrank">
-                         {{App\Services\ValorantUtility::valorantrank($valo->rank)}}
+                         {{App\Services\ValorantUtility::valorantrank($valo)}}
                        </select>
                    </div>
                    <div>
                      <label for="valorantoffer">求める人</label>
                      <select name="valorant[offer]" id="valorantoffer">
-                      {{App\Services\ValorantUtility::valorantoffer($valo->offer)}}
+                      {{App\Services\ValorantUtility::valorantoffer($valo)}}
                      </select>
                    </div>
                  </div>
@@ -117,7 +116,7 @@
                    <div>
                      <label for="codlevel">レベル</label>
                      <select name="cod[level]" id="codlevel">
-                       {{App\Services\CodUtility::codlevel($cod->level)}}
+                       {{App\Services\CodUtility::codlevel($cod)}}
                      </select>
                      @if($cod!="")
                      <input type="hidden" name="cod[id]", value={{\Auth::User()->cod()->get()[0]->id}}></input>
@@ -129,13 +128,13 @@
                    <div>
                      <label for="codrank">ランク</label>
                        <select name='cod[rank]' id="codrank">
-                        {{App\Services\CodUtility::codrank($cod->rank)}}
+                        {{App\Services\CodUtility::codrank($cod)}}
                        </select>
                      </div>
                      <div>
                        <label for="codoffer">求める人</label>
                        <select name="cod[offer]" id="codoffer">
-                        {{App\Services\CodUtility::codoffer($cod->offer)}}
+                        {{App\Services\CodUtility::codoffer($cod)}}
                        </select>
                      </div>
                    </div>
