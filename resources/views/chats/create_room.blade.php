@@ -24,8 +24,10 @@
       </div>
     </div>
     <div class="d-flex justify-content-center">
-      <button id="room" type="button">部屋作成</button>
+      <div class="button005">
+      <button>部屋作成</button>
       <p id="txt"></p>
+    </div>
     </div>
   </form>
   <div class="buttonGroup">

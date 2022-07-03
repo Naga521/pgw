@@ -64,61 +64,91 @@
     　　　　　　 </div>
             @endforeach
           </div>
-          
+          @php
+            $apex_recommend=collect([])
+          @endphp
           <h3>Apexおすすめユーザー</h3>
-          <div>
+          
             @foreach($users as $user)
-            <div>
-            @if(count($user->apex()->get())===1 && $user->id!==\Auth::User()->id && count(\Auth::User()->apex()->get())!==0)
-            @if(App\Services\RecommendApexUtility::apexoffer(\Auth::User()->apex()->get()[0]->offer,$user))
-                        <a href="/users/{{$user->id}}"><h4 class='home'>{{ $user->name }}</h4></a>
-            @if ($user->icon_path)
-      　　　   　　<!-- 画像を表示 -->
-      　　　    　　<img src="{{ $user->icon_path }}"  width=100 />
-    　　　　　  　　　　@else
-    　　　　　  　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
-　　　　　    @endif
-　　　　　   @endif
-    　　　　　　 </div>
-    　　　　　　 @endif
+              @if(count($user->apex()->get())===1 && $user->id!==\Auth::User()->id && count(\Auth::User()->apex()->get())!==0)
+                @if(App\Services\RecommendApexUtility::apexoffer(\Auth::User()->apex()->get()[0]->offer,$user))
+                  @php
+                    $apex_recommend=$apex_recommend->concat([$user])
+                  @endphp
+                @endif
+              @endif
             @endforeach
-          </div>
+    
+            
+            <div class=flex> 
+              @foreach($apex_recommend as $user)
+                <div>
+                  <a href="/users/{{$user->id}}"><h4 class='home'>{{ $user->name }}</h4></a>
+                    @if ($user->icon_path)
+      　　　          　　<!-- 画像を表示 -->
+      　　　         　　<img src="{{ $user->icon_path }}"  width=100 />
+    　　　　　        　　　　@else
+    　　　　　       　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
+　　　　　         @endif
+　　　　　      </div>
+              @endforeach
+             </div>
+          
+          @php
+            $valorant_recommend=collect([])
+          @endphp
           
           <h3>Valorantおすすめユーザー</h3>
-          <div>
+         
             @foreach($users as $user)
-            <div>
-            @if(count($user->valorant()->get())===1 && $user->id!==\Auth::User()->id&& count(\Auth::User()->valorant()->get())!==0)
-            @if(App\Services\RecommendValorantUtility::valorantoffer(\Auth::User()->valorant()->get()[0]->offer,$user))
-                        <a href="/users/{{$user->id}}"><h4 class='home'>{{ $user->name }}</h4></a>
-            @if ($user->icon_path)
-      　　　   　　<!-- 画像を表示 -->
-      　　　    　　<img src="{{ $user->icon_path }}"  width=100 />
-    　　　　　  　　　　@else
-    　　　　　  　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
-　　　　　    @endif
-　　　　　   @endif
-    　　　　　　 </div>
-    　　　　　　 @endif
+              @if(count($user->valorant()->get())===1 && $user->id!==\Auth::User()->id&& count(\Auth::User()->valorant()->get())!==0)
+                @if(App\Services\RecommendValorantUtility::valorantoffer(\Auth::User()->valorant()->get()[0]->offer,$user))
+                  @php
+                    $valorant_recommend=$valorant_recommend->concat([$user])
+                  @endphp
+                @endif
+              @endif
             @endforeach
-          </div>
+            
+            <div class=flex>
+              @foreach($valorant_recommend as $user)
+              <div>
+                <a href="/users/{{$user->id}}"><h4 class='home'>{{ $user->name }}</h4></a>
+                  @if ($user->icon_path)
+      　　　       　　<!-- 画像を表示 -->
+      　　　        　　<img src="{{ $user->icon_path }}"  width=100 />
+    　　　　　     　　　　@else
+    　　　　　      　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
+　　　　　        @endif
+              </div>
+              @endforeach
+            </div>
           
-           <h3>Codおすすめユーザー</h3>
-          <div>
-            @foreach($users as $user)
-            <div>
+          @php
+            $cod_recommend=collect([])
+          @endphp
+          <h3>Codおすすめユーザー</h3>
+          @foreach($users as $user)
             @if(count($user->cod()->get())===1 && $user->id!==\Auth::User()->id&& count(\Auth::User()->cod()->get())!==0)
-            @if(App\Services\RecommendCodUtility::codoffer(\Auth::User()->cod()->get()[0]->offer,$user))
-                        <a href="/users/{{$user->id}}"><h4 class='home'>{{ $user->name }}</h4></a>
-            @if ($user->icon_path)
-      　　　   　　<!-- 画像を表示 -->
-      　　　    　　<img src="{{ $user->icon_path }}"  width=100 />
-    　　　　　  　　　　@else
-    　　　　　  　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
-　　　　　    @endif
-　　　　　   @endif
-    　　　　　　 </div>
-    　　　　　　 @endif
+              @if(App\Services\RecommendCodUtility::codoffer(\Auth::User()->cod()->get()[0]->offer,$user))
+                @php
+                   $cod_recommend=$cod_recommend->concat([$user])
+                @endphp
+              @endif
+            @endif
+          @endforeach
+            
+          <div class=flex>
+            @foreach($cod_recommend as $user)
+              <div>
+                <a href="/users/{{$user->id}}"><h4 class='home'>{{ $user->name }}</h4></a>
+                  @if ($user->icon_path)
+      　　　       　　<!-- 画像を表示 -->
+      　　　       　　<img src="{{ $user->icon_path }}"  width=100 />
+    　　　　　      　　　　@else
+    　　　　　      　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
+　　　　　        @endif
+    　　　 　　　 </div>
             @endforeach
           </div>
           
