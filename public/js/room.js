@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var btn = document.getElementById('room');
+var btn = document.getElementById('create_room');
 var txt = document.getElementById('txt');
 btn.addEventListener('click', function () {
   'use strict';

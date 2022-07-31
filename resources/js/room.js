@@ -1,4 +1,4 @@
-const btn = document.getElementById('room');
+const btn = document.getElementById('create_room');
 const txt = document.getElementById('txt');
 btn.addEventListener('click',function () {
    'use strict';

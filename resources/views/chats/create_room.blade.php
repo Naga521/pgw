@@ -25,7 +25,7 @@
     </div>
     <div class="d-flex justify-content-center">
       <div class="button005">
-      <button>部屋作成</button>
+      <button id="create_room">部屋作成</button>
       <p id="txt"></p>
     </div>
     </div>
