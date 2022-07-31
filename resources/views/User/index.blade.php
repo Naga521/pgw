@@ -55,7 +55,7 @@
 　　　　　  @foreach( $data->FollowUsers()->get() as $friend )
 　　　　　  <div>
 　　　　　    <a href="/users/{{$friend->id}}"><h4 class='home'>{{ $friend->name }}</h4></a>
-　　　　　    @if ($user->icon_path)
+　　　　　    @if ($friend->icon_path)
       　　　   　　<!-- 画像を表示 -->
       　　　    　　<img src="{{$friend->icon_path }}"  width=100 />
     　　　　　  　　　　@else
