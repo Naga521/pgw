@@ -42,7 +42,7 @@
 　　　　　    <a href="/users/{{$friend->id}}"><h4 class='home'>{{ $friend->name }}</h4></a>
 　　　　　    @if ($user->icon_path)
       　　　   　　<!-- 画像を表示 -->
-      　　　    　　<img src="{{ $user->icon_path }}"  width=100 />
+      　　　    　　<img src="{{$friend->icon_path }}"  width=100 />
     　　　　　  　　　　@else
     　　　　　  　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
 　　　　　    @endif
@@ -57,7 +57,7 @@
 　　　　　    <a href="/users/{{$friend->id}}"><h4 class='home'>{{ $friend->name }}</h4></a>
 　　　　　    @if ($user->icon_path)
       　　　   　　<!-- 画像を表示 -->
-      　　　    　　<img src="{{ $user->icon_path }}"  width=100 />
+      　　　    　　<img src="{{$friend->icon_path }}"  width=100 />
     　　　　　  　　　　@else
     　　　　　  　　　　<img src="https://s3.ap-northeast-1.amazonaws.com/mypage-backet/39ZhpejTmweG3g8hyMr3ymzGRwe8DUuiMFkpnUVa.png" width=100 />
 　　　　　    @endif
